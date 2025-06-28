@@ -1,16 +1,16 @@
-# Claude Code Docker Environment
+# Gemini Cli Docker Environment
 
 
 
-A containerized environment for running Claude Code CLI in Docker with proper file permissions and Docker socket access.
+A containerized environment for running Gemini Cli CLI in Docker with proper file permissions and Docker socket access.
 
-<img src="picture.jpg" alt="Claude Code Docker Environment Logo" width=100em />
+<img src="picture.jpg" alt="Gemini Cli Docker Environment Logo" width=100em />
 
 ## Purpose
 
-This project solves file permission and Docker socket access issues when using Claude Code in a container. The container automatically configures itself for the current system user, enabling:
+This project solves file permission and Docker socket access issues when using Gemini Cli in a container. The container automatically configures itself for the current system user, enabling:
 
-- Run Claude Code in an isolated environment
+- Run Gemini Cli in an isolated environment
 - Work with files without permission issues
 - Use Docker from within the container (Docker-in-Docker)
 - Persist home directory between runs
@@ -28,30 +28,30 @@ This project solves file permission and Docker socket access issues when using C
 ./install.sh
 ```
 
-After installation, the `claude` command will be available from any directory.
+After installation, the `gemini` command will be available from any directory.
 
 ## Usage
 
 ### Direct execution:
 ```bash
-./claude-run.sh [Claude Code arguments]
+./gemini-run.sh [Gemini Cli arguments]
 ```
 
 ### After installation:
 ```bash
-claude [Claude Code arguments]
+gemini [Gemini Cli arguments]
 ```
 
 ### Examples:
 ```bash
-# Start Claude Code
-claude
+# Start Gemini Cli
+gemini
 
 # Start with specific model
-claude --model sonnet
+gemini --model sonnet
 ```
 
-look at claude --help for more info 
+look at gemini --help for more info 
 
 some options realated to paths can not work in container
 
@@ -67,4 +67,4 @@ some options realated to paths can not work in container
 
 - **VSCode Integration**: Currently doesn't work with VSCode IDE integration. If you know how to fix this, please share your solution!
 - **Container Isolation**: Not 100% secure isolation since the container has access to Docker daemon. A sophisticated AI agent could potentially escape the container
-- **Path-related options**: Some Claude Code options related to paths may not work properly in the containerized environment
+- **Path-related options**: Some Gemini Cli options related to paths may not work properly in the containerized environment

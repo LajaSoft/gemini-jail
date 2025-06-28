@@ -1,16 +1,17 @@
 services:
-  claude-code:
+  gemini-cli:
     build: 
       context: .
       args:
         - USER_ID=${USER_ID:-1000}
         - GROUP_ID=${GROUP_ID:-1000}
         - DOCKER_GID=${DOCKER_GID:-10000}
-    container_name: claude-code
+    container_name: gemini-cli
     volumes:
-      - ./home:/home/claude-code
+      - ./home:/home/gemini-cli
+      - ./gemini_start.sh:/home/gemini-cli/bin/gemini_start.sh
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - HOME=/home/claude-code
-      - NODE_PATH=/home/claude-code/node_modules:/home/claude-install/node_modules
-      - PATH=/home/claude-code/node_modules/.bin:/home/claude-install/node_modules/.bin:/home/claude-code/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - HOME=/home/gemini-cli
+      - NODE_PATH=/home/gemini-cli/node_modules:/home/gemini-install/node_modules
+      - PATH=/home/gemini-cli/node_modules/.bin:/home/gemini-cli/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin

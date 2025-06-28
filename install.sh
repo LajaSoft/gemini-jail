@@ -1,19 +1,19 @@
 #!/bin/bash
 
-# Install script for Claude Code Docker wrapper
-# Creates symlink to claude-run.sh in ~/bin/claude and ensures ~/bin is in PATH
+# Install script for Gemini Cli Docker wrapper
+# Creates symlink to gemini-run.sh in ~/bin/gemini and ensures ~/bin is in PATH
 
 set -e
 
 SCRIPT_DIR=$(dirname $(realpath $0))
 BIN_DIR="$HOME/bin"
-SYMLINK_PATH="$BIN_DIR/claude"
+SYMLINK_PATH="$BIN_DIR/gemini"
 pushd .
 cd $SCRIPT_DIR
 ./build.sh
 popd
 
-echo "Installing Claude Code Docker wrapper..."
+echo "Installing Gemini Cli Docker wrapper..."
 
 # Create ~/bin directory if it doesn't exist
 if [ ! -d "$BIN_DIR" ]; then
@@ -21,21 +21,21 @@ if [ ! -d "$BIN_DIR" ]; then
     mkdir -p "$BIN_DIR"
 fi
 
-# Create symlink to claude-run.sh
-echo "Creating symlink $SYMLINK_PATH -> $SCRIPT_DIR/claude-run.sh"
-ln -sf "$SCRIPT_DIR/claude-run.sh" "$SYMLINK_PATH"
+# Create symlink to gemini-run.sh
+echo "Creating symlink $SYMLINK_PATH -> $SCRIPT_DIR/gemini-run.sh"
+ln -sf "$SCRIPT_DIR/gemini-run.sh" "$SYMLINK_PATH"
 
-# Make sure claude-run.sh is executable
-chmod +x "$SCRIPT_DIR/claude-run.sh"
+# Make sure gemini-run.sh is executable
+chmod +x "$SCRIPT_DIR/gemini-run.sh"
 
 # Check if ~/bin is in PATH
 if echo "$PATH" | grep -q "$BIN_DIR"; then
     echo "✓ $BIN_DIR is already in PATH"
-    echo "✓ Installation complete! You can now use 'claude' command from anywhere."
+    echo "✓ Installation complete! You can now use 'gemini' command from anywhere."
 else
     echo "⚠️  $BIN_DIR is not in your PATH"
     echo ""
-    echo "To use the 'claude' command from anywhere, add the following line to your shell configuration:"
+    echo "To use the 'gemini' command from anywhere, add the following line to your shell configuration:"
     echo ""
     
     # Detect shell and provide appropriate instructions

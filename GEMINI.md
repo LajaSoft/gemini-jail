@@ -1,4 +1,4 @@
-# CLAUDE.md
+# GEMINI.md
 USE "docker compose", never use "docker-compose" command
 
 This file provides guidance to Gemini Cli (gemini.ai/code) when working with code in this repository.
@@ -7,7 +7,7 @@ This file provides guidance to Gemini Cli (gemini.ai/code) when working with cod
 
 This is a Docker-based environment for running Gemini Cli. The setup consists of:
 
-- **Dockerfile**: Alpine Linux container with Gemini Cli CLI pre-installed
+- **Dockerfile**: Alpine Linux container with Gemini Cli pre-installed
 - **docker-compose.yml**: Service configuration with dynamic user ID mapping
 - **gemini-run.sh**: Shell script that launches Gemini Cli in a Docker container with current directory mounted
 - **build.sh**: Build script that detects host user parameters and builds the container accordingly
@@ -62,7 +62,7 @@ The script automatically:
 
 The container includes:
 - bash, curl, nodejs, npm, openssh, coreutils, docker, docker-compose
-- Gemini Cli CLI (`@anthropic-ai/gemini-cli`)
+- Gemini Cli
 - Docker daemon access for container operations
 - User runs with same UID/GID as host user for seamless file permissions
 
