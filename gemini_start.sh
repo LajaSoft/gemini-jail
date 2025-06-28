@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-
+npm config set prefix ~/global_node/
 VERSION_FILE=~/gemini-cli-version.txt
 export PATH="$HOME/global_node/bin:$PATH"
 
